@@ -9,6 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     env:
+        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
         TZ: Asia/Kolkata
         SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
         SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}

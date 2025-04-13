@@ -11,6 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     env:
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
       DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
     steps:
       - name: Checkout Source Code

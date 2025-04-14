@@ -30,10 +30,10 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
-      - name: Install OpenJDK 17 Java
+      - name: Install OpenJDK 21 Java
         run: |
             sudo apt-get update
-            sudo apt-get install openjdk-17-jdk-headless
+            sudo apt-get install openjdk-21-jdk-headless
             sudo update-alternatives --set java $JAVA_HOME/bin/java
             sudo update-alternatives --set javac $JAVA_HOME/bin/javac
       - name: Setup Gradle and Validate Wrapper

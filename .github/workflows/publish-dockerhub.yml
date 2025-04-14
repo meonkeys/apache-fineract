@@ -19,10 +19,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install OpenJDK 17 Java
+      - name: Install OpenJDK 21 Java
         run: |
             sudo apt-get update
-            sudo apt-get install openjdk-17-jdk-headless
+            sudo apt-get install openjdk-21-jdk-headless
             sudo update-alternatives --set java $JAVA_HOME/bin/java
             sudo update-alternatives --set javac $JAVA_HOME/bin/javac
 

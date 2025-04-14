@@ -23,7 +23,7 @@ jobs:
             JSON_CONFIG: '{ "interactiveLogin": true, "httpServer": "NettyWrapper", "tokenCallbacks": [ { "issuerId": "auth/realms/fineract", "tokenExpiry": 120, "requestMappings": [{ "requestParam": "scope", "match": "fineract", "claims": { "sub": "mifos", "scope": [ "test" ] } } ] } ] }'
     env:
         TZ: Asia/Kolkata
-        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+        JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
         DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
     steps:
       - name: Checkout

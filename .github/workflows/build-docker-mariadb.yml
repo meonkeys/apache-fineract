@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     env:
-      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+      JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
       DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
       IMAGE_NAME: fineract
     steps:

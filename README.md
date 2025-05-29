@@ -86,20 +86,9 @@ The tenants database connection details are configured [via environment variable
 
 <br>SECURITY
 ============
-NOTE: The HTTP Basic and OAuth2 authentication schemes are mutually exclusive. You can't enable them both at the same time. Fineract checks these settings on startup and will fail if more than one authentication scheme is enabled.
+If you believe you have found a security vulnerability, [let us know privately](https://fineract.apache.org/#contribute).
 
-HTTP Basic Authentication
-------------
-By default Fineract is configured with a HTTP Basic Authentication scheme, so you actually don't have to do anything if you want to use it. But if you would like to explicitly choose this authentication scheme then there are two ways to enable it:
-1. Use environment variables (best choice if you run with Docker Compose):
-```
-FINERACT_SECURITY_BASICAUTH_ENABLED=true
-FINERACT_SECURITY_OAUTH_ENABLED=false
-```
-2. Use JVM parameters (best choice if you run the Spring Boot JAR):
-```
-java -Dfineract.security.basicauth.enabled=true -Dfineract.security.oauth.enabled=false -jar fineract-provider.jar
-```
+For details about security during development and deployment, see <https://fineract.apache.org/docs/current/#_security>.
 
 <br>OAuth2 AUTHENTICATION
 ------------

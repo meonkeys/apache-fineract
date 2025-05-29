@@ -40,6 +40,7 @@ You are now ready to test out OAuth:
 
 == Retrieve an access token from Keycloak
 
+[source,bash]
 ----
 curl --location --request POST \
 'http://localhost:9000/auth/realms/fineract/protocol/openid-connect/token' \

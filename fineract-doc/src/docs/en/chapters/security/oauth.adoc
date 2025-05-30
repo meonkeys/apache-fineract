@@ -24,25 +24,25 @@ The steps required for other OAuth providers will be similar.
 
 == Set up Keycloak
 
-1. From terminal, run: `docker run -p 9000:8080 -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:26.2.5 start-dev`
-2. Go to URL 'http://localhost:9000/admin' and login with admin/admin
-3. Click 'Manage realms', then 'Create realm'
-4. Enter name `fineract` for the realm name
-5. Click on tab 'Users' on the left, then 'Create new user' with email `test@example.com`, First name `Mifos`, Last name `User`
-6. Click on tab 'Credentials' at the top, and set password to `password`, turning 'temporary' setting to off
-7. Click on tab 'Clients' on the left, and create client with ID `community-app`
-8. In Settings tab, set 'Valid redirect URIs' to `localhost`, enable 'Client authentication', check 'Direct access grants'
-9. Click 'Save' and a 'Credentials' tab will appear
-10. In Credentials tab, copy string in field 'secret' as this will be needed in the step to request the access token
+. From terminal, run: `docker run -p 9000:8080 -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:26.2.5 start-dev`
+. Go to URL 'http://localhost:9000/admin' and login with admin/admin
+. Click 'Manage realms', then 'Create realm'
+. Enter name `fineract` for the realm name
+. Click on tab 'Users' on the left, then 'Create new user' with email `test@example.com`, First name `Mifos`, Last name `User`
+. Click on tab 'Credentials' at the top, and set password to `password`, turning 'temporary' setting to off
+. Click on tab 'Clients' on the left, and create client with ID `community-app`
+. In Settings tab, set 'Valid redirect URIs' to `localhost`, enable 'Client authentication', check 'Direct access grants'
+. Click 'Save' and a 'Credentials' tab will appear
+. In Credentials tab, copy string in field 'secret' as this will be needed in the step to request the access token
 
 Finally we need to change Keycloak configuration so that it uses the username as a subject of the token:
 
-1. Choose client `community-app` in the tab 'Clients'
-2. Click on tab 'Client scopes', then `community-app-dedicated`
-3. Go to tab 'Mappers' and click on 'Create'
-4. Click 'Configure a new mapper', and choose 'User Property'
-5. Enter `usernameInSub` as 'Name'
-6. Enter `username` into the field 'Property' and `sub` into the field 'Token Claim Name'
+. Choose client `community-app` in the tab 'Clients'
+. Click on tab 'Client scopes', then `community-app-dedicated`
+. Go to tab 'Mappers' and click on 'Create'
+. Click 'Configure a new mapper', and choose 'User Property'
+. Enter `usernameInSub` as 'Name'
+. Enter `username` into the field 'Property' and `sub` into the field 'Token Claim Name'
 
 You are now ready to test out OAuth:
 

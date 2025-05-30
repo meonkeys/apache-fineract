@@ -1,21 +1,26 @@
 = OAuth
 
-Fineract has a (basic) OAuth2 support based on Spring Boot Security. Here's how to use it:
+Fineract has basic OAuth2 support based on Spring Boot Security.
 
-== Build
+This can be enabled at runtime in one of two ways:
 
-You must re-build the distribution JAR (or WAR) using the special `-Psecurity=oauth` flag:
-
+. Use environment variables (best choice if you run with Docker Compose):
++
 [source,bash]
 ----
-./gradlew bootRun -Psecurity=oauth
+FINERACT_SECURITY_BASICAUTH_ENABLED=false
+FINERACT_SECURITY_OAUTH_ENABLED=true
 ----
 
-Downloads from https://fineract.apache.org, or using e.g. the https://hub.docker.com/r/apache/fineract container image, or on https://www.fineract.dev, this will not work, because they have not been built using this flag.
+. Use JVM parameters (best choice if you run the Spring Boot JAR):
++
+[source,bash]
+----
+java -Dfineract.security.basicauth.enabled=false -Dfineract.security.oauth.enabled=true -jar fineract-provider.jar
+----
 
-Previous versions of Fineract included a built-in authorisation server for issuing OAuth tokens. However, as the spring-security-oauth2 package was deprecated and replaced by built-in OAuth support in Spring Security, this is no longer supported as part of the package. Instead, you need to run a separate OAuth authorization server (e.g. https://github.com/spring-projects/spring-authorization-server) or use a 3rd-party OAuth authorization provider (https://en.wikipedia.org/wiki/List_of_OAuth_providers)
-
-This instruction describes how to get Fineract OAuth working with a https://www.keycloak.org[Keycloak] based authentication provider running in a Docker container. The steps required for other OAuth providers will be similar.
+Here's how to test OAuth with https://www.keycloak.org[Keycloak].
+The steps required for other OAuth providers will be similar.
 
 == Set up Keycloak
 

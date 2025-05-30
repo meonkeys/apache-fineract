@@ -90,22 +90,9 @@ If you believe you have found a security vulnerability, [let us know privately](
 
 For details about security during development and deployment, see <https://fineract.apache.org/docs/current/#_security>.
 
-<br>OAuth2 AUTHENTICATION
-------------
-There is also an OAuth2 authentication scheme available. Again, two ways to enable it:
-1. Use environment variables (best choice if you run with Docker Compose):
-```
-FINERACT_SECURITY_BASICAUTH_ENABLED=false
-FINERACT_SECURITY_OAUTH_ENABLED=true
-```
-2. Use JVM parameters (best choice if you run the Spring Boot JAR):
-```
-java -Dfineract.security.basicauth.enabled=false -Dfineract.security.oauth.enabled=true -jar fineract-provider.jar
-```
-
 TWO FACTOR AUTHENTICATION (2FA)
 ------------
-You can also enable 2FA authentication. Depending on how you start Fineract add the following:
+You can enable 2FA authentication. Depending on how you start Fineract add the following:
 
 1. Use environment variable (best choice if you run with Docker Compose):
 ```

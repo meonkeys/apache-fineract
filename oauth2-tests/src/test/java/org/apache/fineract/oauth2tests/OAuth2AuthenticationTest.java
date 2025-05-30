@@ -70,6 +70,8 @@ public class OAuth2AuthenticationTest {
 
     @Test
     public void testApiDocsAccess() {
+        // FIXME: why different path in
+        // integration-tests/src/test/java/org/apache/fineract/integrationtests/ApiDocsTest.java ?
         performServerGet(requestSpec, responseSpec, "/fineract-provider/legacy-docs/apiLive.htm", null);
     }
 

@@ -41,7 +41,10 @@ public class ApiDocsTest {
 
     @Test
     public void testApiDocsAccess() {
-        Utils.performServerGet(requestSpec, responseSpec, "/fineract-provider/legacy-docs/apiLive.htm", null);
+        // FIXME: shouldn't this be /fineract-provider/legacy-docs/apiLive.htm ?
+        // FIXME: why different path in
+        // oauth2-tests/src/test/java/org/apache/fineract/oauth2tests/OAuth2AuthenticationTest.java ?
+        Utils.performServerGet(requestSpec, responseSpec, "/fineract-provider/docs/legacy-docs/apiLive.htm", null);
     }
 
 }

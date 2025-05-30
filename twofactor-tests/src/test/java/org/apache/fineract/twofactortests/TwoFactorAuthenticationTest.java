@@ -97,6 +97,7 @@ public class TwoFactorAuthenticationTest {
 
     @Test
     public void testApiDocsAccess() {
+        // FIXME - see other FIXMEs
         performServerGet(requestSpecWithoutBasic, responseSpec, "/fineract-provider/legacy-docs/apiLive.htm", null);
     }
 

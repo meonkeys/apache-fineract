@@ -6,6 +6,7 @@ Fineract has a (basic) OAuth2 support based on Spring Boot Security. Here's how 
 
 You must re-build the distribution JAR (or WAR) using the special `-Psecurity=oauth` flag:
 
+[source,bash]
 ----
 ./gradlew bootRun -Psecurity=oauth
 ----
@@ -14,11 +15,11 @@ Downloads from https://fineract.apache.org, or using e.g. the https://hub.docker
 
 Previous versions of Fineract included a built-in authorisation server for issuing OAuth tokens. However, as the spring-security-oauth2 package was deprecated and replaced by built-in OAuth support in Spring Security, this is no longer supported as part of the package. Instead, you need to run a separate OAuth authorization server (e.g. https://github.com/spring-projects/spring-authorization-server) or use a 3rd-party OAuth authorization provider (https://en.wikipedia.org/wiki/List_of_OAuth_providers)
 
-This instruction describes how to get Fineract OAuth working with a Keycloak (http://keycloak.org) based authentication provider running in a Docker container. The steps required for other OAuth providers will be similar. 
+This instruction describes how to get Fineract OAuth working with a https://www.keycloak.org[Keycloak] based authentication provider running in a Docker container. The steps required for other OAuth providers will be similar.
 
 == Set up Keycloak
 
-1. From terminal, run: 'docker run -p 9000:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:15.0.2'
+1. From terminal, run: `docker run -p 9000:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:15.0.2`
 2. Go to URL 'http://localhost:9000/auth/admin' and login with admin/admin
 3. Hover your mouse over text "Master" and click on "Add realm"
 4. Enter name "fineract" for your realm
@@ -43,25 +44,25 @@ You are now ready to test out OAuth:
 [source,bash]
 ----
 curl --location --request POST \
-'http://localhost:9000/auth/realms/fineract/protocol/openid-connect/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'username=mifos' \
---data-urlencode 'password=password' \
---data-urlencode 'client_id=community-app' \
---data-urlencode 'grant_type=password' \
---data-urlencode 'client_secret=<enter the client secret from credentials tab>'
+  'http://localhost:9000/auth/realms/fineract/protocol/openid-connect/token' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'username=mifos' \
+  --data-urlencode 'password=password' \
+  --data-urlencode 'client_id=community-app' \
+  --data-urlencode 'grant_type=password' \
+  --data-urlencode 'client_secret=<enter the client secret from credentials tab>'
 ----
 
 The reply should contain a field 'access_token'. Copy the field's value and use it in the API call below:
 
 == Invoke APIs and pass `Authorization: bearer ...` header
 
+[source,bash]
 ----
 curl --location --request GET \
-'https://localhost:8443/fineract-provider/api/v1/offices' \
---header 'Fineract-Platform-TenantId: default' \
---header 'Authorization: bearer <enter the value of the access_token field>'
-
+  'https://localhost:8443/fineract-provider/api/v1/offices' \
+  --header 'Fineract-Platform-TenantId: default' \
+  --header 'Authorization: bearer <enter the value of the access_token field>'
 ----
 
 NOTE: See also https://fineract.apache.org/legacy-docs/apiLive.htm#authentication_oauth

@@ -12,10 +12,6 @@ Alternatively, you could replace the built-in default SSL certificate with one y
 
 The Fineract API client supports an insecure mode (`FineractClient.Builder#insecure()`), and API users such as mobile apps may expose Settings to let end-users accept the self signed certificate. This should always be used for testing only, never in production.
 
-All SSL-related properties are tunable.
-SSL can be turned off by setting the environment variable `FINERACT_SERVER_SSL_ENABLED` to false.
-If you do that then please make sure to also change the server port to `8080` via the variable `FINERACT_SERVER_PORT`, just for the sake of keeping the conventions.
+All SSL-related properties are tunable. SSL can be turned off by setting the environment variable `FINERACT_SERVER_SSL_ENABLED` to false. If you do that then please make sure to also change the server port to `8080` via the variable `FINERACT_SERVER_PORT`, just for the sake of keeping the conventions.
 
-To use a different SSL keystore, set `FINERACT_SERVER_SSL_KEY_STORE` to a path to a different (not embedded) keystore.
-The password can be set via `FINERACT_SERVER_SSL_KEY_STORE_PASSWORD`.
-See the `application.properties` file and the https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html[latest Spring Boot documentation] for details.
+To use a different SSL keystore, set `FINERACT_SERVER_SSL_KEY_STORE` to a path to a different (not embedded) keystore. The password can be set via `FINERACT_SERVER_SSL_KEY_STORE_PASSWORD`. See the `application.properties` file and the https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html[latest Spring Boot documentation] for details.

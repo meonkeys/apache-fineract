@@ -5,3 +5,5 @@ NOTE: The HTTP Basic and OAuth2 authentication schemes are mutually exclusive. Y
 include::basic.adoc[leveloffset=+1]
 
 include::oauth.adoc[leveloffset=+1]
+
+include::2fa.adoc[leveloffset=+1]

@@ -90,19 +90,6 @@ If you believe you have found a security vulnerability, [let us know privately](
 
 For details about security during development and deployment, see <https://fineract.apache.org/docs/current/#_security>.
 
-TWO FACTOR AUTHENTICATION (2FA)
-------------
-You can enable 2FA authentication. Depending on how you start Fineract add the following:
-
-1. Use environment variable (best choice if you run with Docker Compose):
-```
-FINERACT_SECURITY_2FA_ENABLED=true
-```
-2. Use JVM parameter (best choice if you run the Spring Boot JAR):
-```
--Dfineract.security.2fa.enabled=true
-```
-
 
 <br>INSTRUCTIONS: How to build a WAR file
 ============

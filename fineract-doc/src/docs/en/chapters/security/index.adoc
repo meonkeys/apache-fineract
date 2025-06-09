@@ -1,6 +1,12 @@
 = Security
 
-Fineract is _secure by design_. It is designed and built from the ground up to accept, manage, and present data securely. This chapter will detail its various security-related features and settings, along with best practices for secure deployment.
+Fineract is *secure by design*. It is designed and built from the ground up to accept, manage, and present data securely. This chapter will detail its various security-related features and settings, along with best practices for secure deployment.
+
+If you believe you have found a security vulnerability in Fineract itself, https://fineract.apache.org/#contribute[let us know privately].
+
+Your task as bank CTO, sysadmin, vendor, or other entity responsible for hosting Fineract securely is to consider these sections carefully and completely and apply them to your work. While a Fineract release is secure by design, it is not sufficient for a sysadmin to simply start it up and hope for the best. Careful steps must be taken to ensure a deployment is and remains secure despite software environment changes, attacks, staff transitions, and anything else that may arise.
+
+We'll first cover the various supported authentication schemes, then will continue on to recommendations for securing a Fineract deployment.
 
 NOTE: The HTTP Basic and OAuth2 authentication schemes are mutually exclusive. You can't enable them both at the same time. Fineract checks these settings on startup and will fail if more than one authentication scheme is enabled.
 
@@ -9,3 +15,5 @@ include::basic.adoc[leveloffset=+1]
 include::oauth.adoc[leveloffset=+1]
 
 include::2fa.adoc[leveloffset=+1]
+
+include::harden.adoc[leveloffset=+1]

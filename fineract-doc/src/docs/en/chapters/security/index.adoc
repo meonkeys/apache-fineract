@@ -1,5 +1,7 @@
 = Security
 
+Fineract is _secure by design_. It is designed and built from the ground up to accept, manage, and present data securely. This chapter will detail its various security-related features and settings, along with best practices for secure deployment.
+
 NOTE: The HTTP Basic and OAuth2 authentication schemes are mutually exclusive. You can't enable them both at the same time. Fineract checks these settings on startup and will fail if more than one authentication scheme is enabled.
 
 include::basic.adoc[leveloffset=+1]

@@ -1,6 +1,6 @@
 = OAuth
 
-Fineract has basic OAuth2 support based on Spring Boot Security.
+Fineract has basic OAuth support based on Spring Boot Security.
 
 This can be enabled at runtime in one of two ways:
 

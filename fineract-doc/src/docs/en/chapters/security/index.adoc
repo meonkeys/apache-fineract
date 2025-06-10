@@ -8,7 +8,7 @@ Your task as bank CTO, sysadmin, vendor, or other entity responsible for hosting
 
 We'll first cover the various supported authentication schemes, then will continue on to recommendations for securing a Fineract deployment.
 
-NOTE: The HTTP Basic and OAuth2 authentication schemes are mutually exclusive. You can't enable them both at the same time. Fineract checks these settings on startup and will fail if more than one authentication scheme is enabled.
+NOTE: The HTTP Basic and OAuth authentication schemes are mutually exclusive. You can't enable them both at the same time. Fineract checks these settings on startup and will fail if more than one authentication scheme is enabled.
 
 include::basic.adoc[leveloffset=+1]
 

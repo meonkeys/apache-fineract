@@ -12,13 +12,13 @@ Also, we recommend you familiarize yourself with the OWASP foundation and the "C
 
 === Run it isolated and/or disconnected
 
-In the world of Microfinance or small banking operations (in some geographies), it is possible that you can run Fineract on a private network, or isolated from the internet by being hosted locally and securing all connections. This could involve establishing a VPN with limited ports open, and only accepting connections within that VPN. At the far end of this spectrum, is running it isolated and air-gapped as a backend accounting system, where there is no internet connection on that device. In such scenarios, you are limiting the vectors of attack to just those employees you give access to. You are also limiting the functionality to accounting and basic operations, so this is rarely appropriate.  Even in these scenarios, it is important that you establish reviews of logs and accounts on a periodic basis to determine if any internal fraud is occurring. Such things should be part of your operational manual. There are a number of resources available for this topic, please find them online. For fineract in particular, be mindful of the set up of approvals and and the access you give to each person or role in your organization
+In the world of Microfinance or small banking operations (in some geographies), it is possible that you can run Fineract on a private network, or isolated from the internet by being hosted locally and securing all connections. This could involve establishing a VPN with limited ports open, and only accepting connections within that VPN. At the far end of this spectrum, is running it isolated and air-gapped as a backend accounting system, where there is no internet connection on that device. In such scenarios, you are limiting the vectors of attack to just those employees you give access to. You are also limiting the functionality to accounting and basic operations, so this is rarely appropriate.  Even in these scenarios, it is important that you establish reviews of logs and accounts on a periodic basis to determine if any internal fraud is occurring. Such things should be part of your operational manual. There are a number of resources available for this topic, please find them online. For Fineract in particular, be mindful of the set up of approvals and and the access you give to each person or role in your organization
 
 === Running it connected but behind a firewalls
 
-It should be clear that running it on the internet directly, without API monitoring and filtering, is a bad idea. This is especially true if your fineract instance is connected to a payment mechanism of any kind. Imagine an exploit being used to gain access and then to send funds from an account to an outside merchant or bank. An attacker could drain an account before you can detect the issue.  And, then it will depend on the payment scheme rules whether any of those funds are recoverable.
+It should be clear that running it on the internet directly, without API monitoring and filtering, is a bad idea. This is especially true if your Fineract instance is connected to a payment mechanism of any kind. Imagine an exploit being used to gain access and then to send funds from an account to an outside merchant or bank. An attacker could drain an account before you can detect the issue.  And, then it will depend on the payment scheme rules whether any of those funds are recoverable.
 
-There are multiple ways to enhance the security that is built into Fineract, but none of them are bullet proof and so you must have defense in depth. One key thing is to run the fineract instance behind an API gateway, and to prevent certain API patterns or calls that are likely to be fraudulent. The important thing is to recognize that while you may not be a target institution now, at any moment this can change, and your IP will be listed on the dark web as a potential target for exploit. Your IT team must also have ways to quickly turn off services to limit the damage.
+There are multiple ways to enhance the security that is built into Fineract, but none of them are bulletproof and so you must have defense in depth. One key thing is to run the Fineract instance behind an API gateway, and to prevent certain API patterns or calls that are likely to be fraudulent. The important thing is to recognize that while you may not be a target institution now, at any moment this can change, and your IP will be listed on the dark web as a potential target for exploit. Your IT team must also have ways to quickly turn off services to limit the damage.
 
 It is recommended to run it with at least API Gateway, WAF (Web Application Firewall) and SQL Injection filtering tool if connecting to the internet. Fineract must be hardened to run in production.
 
@@ -54,7 +54,7 @@ Implement strong data encryption strategies to protect sensitive information. Ke
 
 You would probably want to encrypt the data at rest with AES-256 and in transit via TLS 1.3. Create and maintain binding standards for encryption in your organization. And remember, key management to encryption is the key. Every cloud providers provides key management services that help you manage and secure your keys.
 
-examples:
+Examples:
 
 * https://aws.amazon.com/kms/
 * https://cloud.google.com/docs/security/key-management-deep-dive
@@ -66,7 +66,7 @@ examples:
 
 Secure code by following secure coding practices and standards, such as OWASP's top ten, for any kind of vulnerability at the code level. Use tools like SonarQube for finding security problems in your source code through static application security testing (SAST) prior to deploying an application. Note that SonarQube has already been integrated into our automation build process.
 
-Apache Software Foundation has an account with SonarQube and fineract scans can be found in that account.
+Apache Software Foundation has an account with SonarQube and Fineract scans can be found in that account.
 
 === Multi-factor Authentication (MFA)
 

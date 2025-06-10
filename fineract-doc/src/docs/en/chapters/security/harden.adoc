@@ -52,7 +52,7 @@ Know your compliance surface. Regularly conduct routine security audits and comp
 
 Implement strong data encryption strategies to protect sensitive information. Key management should be something that your IT team does, utilizing best practices. Just like a physical key, you should keep it in a secure location with limited access and take special care not to copy it to digital locations that can be scanned or found, including email systems. Make sure you have procedures in place.
 
-You would probably want to encrypt the data at rest with AES-256 and in transit via TLS 1.3. Create and maintain binding standards for encryption in your organization. And remember, key management to encryption is the key. Every cloud providers provides key management services that help you manage and secure your keys.
+You would probably want to encrypt the data at rest with AES-256 and <<HTTPS,in transit>> via TLS 1.3. Create and maintain binding standards for encryption in your organization. And remember, key management to encryption is the key. Every cloud providers provides key management services that help you manage and secure your keys.
 
 Examples:
 

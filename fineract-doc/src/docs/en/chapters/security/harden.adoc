@@ -1,6 +1,10 @@
 = Securing Fineract
 
-This section covers best practices in securing the use of Fineract. Since Fineract is a financial application with PII (personally identifiable information), it is vital that it is secured in production whenever it is setup. If you are a small financial entity, bank, credit union, microfinance organization, or non-banking financial institution, the project urges you to identify and work with the vendors that work regularly with Fineract and are regular contributors to the security fixes. In this way, we encourage a community of contributions that keep the overall solution secure. Open source gets the benefit of many people reviewing the code and suggesting issues and solutions - let's ensure that virtuous cycle can work by supporting those working on security at Fineract.  
+This section covers best practices in securing the use of Fineract.
+
+Security hardening is a continuum and Fineract is adaptable to your security needs. There's no one way to correctly deploy it and the open source project offers no warranty. It's up to you to deploy and maintain it carefully, according to your organization's needs and compliance requirements.
+
+Since Fineract is a financial application with PII (personally identifiable information), it is vital that it is secured in production whenever it is setup. If you are a small financial entity, bank, credit union, microfinance organization, or non-banking financial institution, the project urges you to identify and work with the vendors that work regularly with Fineract and are regular contributors to the security fixes. In this way, we encourage a community of contributions that keep the overall solution secure. Open source gets the benefit of many people reviewing the code and suggesting issues and solutions - let's ensure that virtuous cycle can work by supporting those working on security at Fineract.
 
 Members of the Security team can be reached at security AT fineract.apache.org. The reporting mechanisms for vulnerabilities and exploits are there, not on the public dev list.  
 
@@ -8,7 +12,7 @@ See apache security practices for more information. https://security.apache.org
 
 Also, we recommend you familiarize yourself with the OWASP foundation and the "Cheat Sheet" series https://cheatsheetseries.owasp.org 
 
-== Options for securing the Fineract infrastructure
+== Tips for securing the Fineract infrastructure
 
 === Run it isolated and/or disconnected
 

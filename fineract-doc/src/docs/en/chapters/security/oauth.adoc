@@ -28,7 +28,7 @@ The steps required for other OAuth providers will be similar.
 . Go to URL 'http://localhost:9000/admin' and login with admin/admin
 . Click 'Manage realms', then 'Create realm'
 . Enter name `fineract` for the realm name
-. Click on tab 'Users' on the left, then 'Create new user' with email `test@example.com`, First name `Mifos`, Last name `User`
+. Click on tab 'Users' on the left, then 'Create new user' with username `mifos`, email `test@example.com`, First name `Mifos`, Last name `User`
 . Click on tab 'Credentials' at the top, and set password to `password`, turning 'temporary' setting to off
 . Click on tab 'Clients' on the left, and create client with ID `community-app`
 . In Settings tab, set 'Valid redirect URIs' to `localhost`, enable 'Client authentication', check 'Direct access grants'

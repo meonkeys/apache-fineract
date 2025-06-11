@@ -39,8 +39,7 @@ Finally we need to change Keycloak configuration so that it uses the username as
 
 . Choose client `community-app` in the tab 'Clients'
 . Click on tab 'Client scopes', then `community-app-dedicated`
-. Go to tab 'Mappers' and click on 'Create'
-. Click 'Configure a new mapper', and choose 'User Property'
+. Go to tab 'Mappers', click 'Configure a new mapper' and choose 'User Property'
 . Enter `usernameInSub` as 'Name'
 . Enter `username` into the field 'Property' and `sub` into the field 'Token Claim Name'
 
@@ -51,7 +50,7 @@ You are now ready to test out OAuth:
 [source,bash]
 ----
 curl --location --request POST \
-  'http://localhost:9000/auth/realms/fineract/protocol/openid-connect/token' \
+  'http://localhost:9000/realms/fineract/protocol/openid-connect/token' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'username=mifos' \
   --data-urlencode 'password=password' \

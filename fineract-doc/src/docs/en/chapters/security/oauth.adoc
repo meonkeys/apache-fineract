@@ -10,6 +10,7 @@ This can be enabled at runtime in one of two ways:
 ----
 FINERACT_SECURITY_BASICAUTH_ENABLED=false
 FINERACT_SECURITY_OAUTH_ENABLED=true
+FINERACT_SERVER_OAUTH_RESOURCE_URL=http://localhost:9000/realms/fineract
 ----
 
 . Use JVM parameters (best choice if you run the Spring Boot JAR):
@@ -50,7 +51,7 @@ You are now ready to test out OAuth:
 [source,bash]
 ----
 curl --request POST \
-  'http://localhost:9000/realms/fineract/protocol/openid-connect/token' \
+  "$FINERACT_SERVER_OAUTH_RESOURCE_URL/protocol/openid-connect/token" \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'username=mifos' \
   --data-urlencode 'password=password' \

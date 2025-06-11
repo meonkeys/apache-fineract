@@ -49,7 +49,7 @@ You are now ready to test out OAuth:
 
 [source,bash]
 ----
-curl --location --request POST \
+curl --request POST \
   'http://localhost:9000/realms/fineract/protocol/openid-connect/token' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'username=mifos' \
@@ -65,7 +65,7 @@ The reply should contain a field `access_token`. Copy the field's value and use 
 
 [source,bash]
 ----
-curl --location --request GET \
+curl --insecure \
   'https://localhost:8443/fineract-provider/api/v1/offices' \
   --header 'Fineract-Platform-TenantId: default' \
   --header 'Authorization: bearer <enter the value of the access_token field>'

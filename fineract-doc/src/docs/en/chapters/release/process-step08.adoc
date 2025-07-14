@@ -33,3 +33,5 @@ NOTE: You will need your ASF Committer credentials to be able to access the Subv
 ----
 % ./gradlew fineractReleaseStep8 -Pfineract.release.version={revnumber}
 ----
+
+CAUTION: This task is inefficient. Follow `svn mkdir` and other manual steps above.

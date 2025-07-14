@@ -4,6 +4,9 @@
 
 Next, you create a git tag from the HEAD of the release's git branch.
 
+// FIXME - same {revnumber} issue here (see other steps)
+// FIXME - integrationTests doesn't likely work, maybe just build?
+
 [source,bash,subs="attributes+,+macros"]
 ----
 % git checkout {revnumber}

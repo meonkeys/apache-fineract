@@ -15,6 +15,29 @@ Make sure release artifacts are hosted at https://dist.apache.org/repos/dist/dev
 * No jar files in the source artifacts
 * Integration tests should work
 
+Code examples:
+
+[source,bash,subs="attributes+"]
+----
+# source tarball signature and checksum verification steps
+# we'll check the source tarball first
+version=1.12.0
+src=apache-fineract-$version-src.tar.gz
+
+# upon success: prints "Good signature" and returns successful exit code
+# upon failure: prints "BAD signature" and returns error exit code
+gpg --verify $src.asc
+
+# upon success: prints nothing and returns successful exit code
+# upon failure: prints checksum differences and returns error exit code
+gpg --print-md SHA512 $src | diff - $src.sha512
+
+# binary tarball signature and checksum verification steps and outputs are similar
+bin=apache-fineract-$version-binary.tar.gz
+gpg --verify $bin.asc
+gpg --print-md SHA512 $bin | diff - $bin.sha512
+----
+
 == Gradle Task
 
 .Command

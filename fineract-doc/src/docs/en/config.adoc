@@ -6,7 +6,7 @@
 :toc: left
 :toclevels: 2
 :icons: font
-:source-highlighter: coderay
+:source-highlighter: rouge
 :experimental:
 :source-language: java
 :lang: en

@@ -20,8 +20,6 @@ apply plugin: 'org.asciidoctor.jvm.convert'
 apply plugin: 'org.asciidoctor.jvm.pdf'
 
 asciidoctorj {
-    version = '3.0.0'
-
     attributes = [
         version: "${project.version}",
         docdate: new Date(),

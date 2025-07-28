@@ -4,6 +4,9 @@
 
 As discussed in https://issues.apache.org/jira/browse/FINERACT-1154[FINERACT-1154], now that everything is final, please do the following to remove the release branch (and just keep the tag), and make sure that everything on the release tag is merged to develop and that e.g. `git describe` works:
 
+// FIXME - messes up flat git commit history
+// see https://github.com/apache/fineract#merge-strategy
+
 [source,bash,subs="attributes+,+macros"]
 ----
 git checkout develop

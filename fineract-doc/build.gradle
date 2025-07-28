@@ -34,6 +34,10 @@ asciidoctorj {
         baseurl: 'fineract.apache.org',
     ]
 
+    modules {
+        diagram.use()
+    }
+
     fatalWarnings ~/include file not found|missing callout|image to embed not found or not readable/
     fatalWarnings missingIncludes()
 }

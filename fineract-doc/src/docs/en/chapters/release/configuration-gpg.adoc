@@ -13,7 +13,7 @@ gpg --version
 ----
 +
 .Output GPG version
-[source,bash]
+[source,text]
 ----
 gpg (GnuPG) 2.2.27
 libgcrypt 1.9.4
@@ -29,7 +29,6 @@ Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
         CAMELLIA128, CAMELLIA192, CAMELLIA256
 Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
 Compression: Uncompressed, ZIP, ZLIB, BZIP2
-
 ----
 +
 CAUTION: The insecure hash algorithm SHA1 is still supported in version 2.2.27. SHA1 is obsolete and you don't want to use it to generate your signature.
@@ -43,7 +42,7 @@ gpg --full-gen-key
 ----
 +
 .Output generate GPG key pair (step 1: key type selection)
-[source,bash]
+[source,text]
 ----
 gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
@@ -61,7 +60,7 @@ Your selection?
 There are four options. The default is to use RSA to create the key pair. Good enough for us.
 +
 .Output generate GPG key pair (step 2: key length selection)
-[source,bash]
+[source,text]
 ----
 RSA keys may be between 1024 and 4096 bits long.
 What keysize do you want? (2048)
@@ -70,7 +69,7 @@ What keysize do you want? (2048)
 The default key length is 2048 bits. 1024 is obsolete and a longer 4096 RSA key will not provide more security than 2048 RSA key. Use the default.
 +
 .Output generate GPG key pair (step 3: validity selection)
-[source,bash]
+[source,text]
 ----
 Requested keysize is 2048 bits
 Please specify how long the key should be valid.
@@ -85,7 +84,7 @@ Key is valid for? (0)2y
 2 years for the validity of your keys should be fine. You can always update the expiration time later on.
 +
 .Output generate GPG key pair (step 4: confirmation)
-[source,bash]
+[source,text]
 ----
 Key expires at Sun 16 Apr 2024 08:10:24 PM UTC
 Is this correct? (y/N)y
@@ -94,7 +93,7 @@ Is this correct? (y/N)y
 Confirm if everything is correct.
 +
 .Output generate GPG key pair (step 5: provide user details)
-[source,bash]
+[source,text]
 ----
 GnuPG needs to construct a user ID to identify your key.
 Real name: Aleksandar Vidakovic
@@ -105,7 +104,7 @@ Comment:
 Provide your user details for the key. This is important because this information will be included in our key. It's one way of indicating who is owner of this key. The email address is a unique identifier for a person. You can leave Comment blank.
 +
 .Output generate GPG key pair (step 6: user ID selection)
-[source,bash]
+[source,text]
 ----
 You selected this USER-ID:
 "Aleksandar Vidakovic <aleks@apache.org>"
@@ -119,7 +118,7 @@ After the selection of your user ID GPG will ask for a passphrase to protect you
 CAUTION: Don't lose your private key password. You won't be able to unlock and use your private key without it.
 +
 .Output generate GPG key pair (step 7: gpg key pair generation)
-[source,bash]
+[source,text]
 ----
 We need to generate a lot of random bytes. It is a good idea to perform
 some other action (type on the keyboard, move the mouse, utilize the
@@ -130,7 +129,7 @@ generator a better chance to gain enough entropy.
 Generating the GPG keys will take a while.
 +
 .Output generate GPG key pair (step 8: gpg key pair finished)
-[source,bash]
+[source,text]
 ----
 gpg: key 7890ABCD marked as ultimately trusted <1>
 gpg: directory '/home/aleks/.gnupg/openpgp-revocs.d' created
@@ -189,7 +188,7 @@ gpg --send-keys ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABCD
 +
 Before doing this, make sure that your default keyserver is hkp://keyserver.ubuntu.com/. You can do this by changing the default keyserver in ~/.gnupg/dirmngr.conf:
 +
-[source,bash]
+[source,text]
 ----
 keyserver hkp://keyserver.ubuntu.com/
 ----
@@ -210,7 +209,7 @@ gpg --armor --export aleks@apache.org
 +
 Output:
 +
-[source,bash]
+[source,text]
 ----
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 

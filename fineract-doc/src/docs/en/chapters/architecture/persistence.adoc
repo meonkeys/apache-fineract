@@ -33,9 +33,7 @@ The actual code can be found in the `DatabaseTypeResolver` class.
 
 == Tenant database security
 
-The tenant database schema password is stored in the `tenant_server_connections` table in the tenant database.
-The password and the read only schema password are encrypted using the `fineract.tenant.master-password` property.
-By default, the database property will be encrypted in the first start from a plane text.
+The tenant database schema password is stored in the `tenant_server_connections` table in the tenant database. The password and the read only schema password are encrypted using the `fineract.tenant.master-password` property. By default, the database property will be encrypted in the first start from a plain text.
 
 When you want to generate a new encrypted password, you can use the `org.apache.fineract.infrastructure.core.service.database.DatabasePasswordEncryptor` class.
 

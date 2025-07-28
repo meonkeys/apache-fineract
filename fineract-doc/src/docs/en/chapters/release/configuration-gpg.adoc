@@ -200,7 +200,9 @@ Alternatively you can provide the keyserver with the send command:
 +
 [source,bash]
 ----
-gpg --keyserver 'hkp://keyserver.ubuntu.com:11371' --send-keys ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABCD
+gpg \
+  --keyserver 'hkp://keyserver.ubuntu.com:11371' \
+  --send-keys ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABCD
 ----
 +
 Another option to publish your key is to submit an armored public key directly at https://keyserver.ubuntu.com/. You can create the necessary data with this command by providing the email address that you used when you created your key pair:

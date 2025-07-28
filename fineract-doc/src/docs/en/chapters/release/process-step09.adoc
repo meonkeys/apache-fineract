@@ -43,7 +43,7 @@ gpg --print-md SHA512 $bin | diff - $bin.sha512
 .Command
 [source,bash,subs="attributes+,+macros"]
 ----
-% ./gradlew fineractReleaseStep9 -Pfineract.release.version={revnumber}
+./gradlew fineractReleaseStep9 -Pfineract.release.version={revnumber}
 ----
 
 CAUTION: This task is not yet automated!

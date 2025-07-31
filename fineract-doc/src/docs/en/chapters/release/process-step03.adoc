@@ -6,8 +6,6 @@ Communicate with the community. You do not need to start a new email thread on t
 
 You do not need to ask committers to hold off any commits until you have branched finished, as it's always possible to fast-forward the branch to latest develop, or cherry-pick last minute changes to it. People should be able to continue working on the develop branch on bug fixes and great new features for the next release while the release process for the current release is being worked through.
 
-// FIXME - don't use {revnumber}, and/or make sure `-SNAPSHOT` is left out
-
 1. Clone fresh repository copy
 +
 [source,bash]
@@ -28,9 +26,8 @@ git log <1>
 +
 [source,bash,subs="attributes+,+macros"]
 ----
-git checkout -b release/{revnumber} <1>
+git checkout -b release/{revnumber}
 ----
-<1> Omit `-SNAPSHOT` if it appears here.
 
 4. Push new branch to Apache Fineract repository
 +

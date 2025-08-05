@@ -25,6 +25,7 @@ buildscript {
         fineractCustomProjects = []
         fineractJavaProjects = subprojects.findAll{
             [
+                'test-results',
                 'fineract-core',
                 'fineract-security',
                 'fineract-cob',

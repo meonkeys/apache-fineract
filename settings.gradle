@@ -85,6 +85,7 @@ include 'fineract-progressive-loan-embeddable-schedule-generator'
 include 'fineract-working-capital-loan'
 // NOTE: custom Docker image with all custom modules included
 include ':custom:docker'
+include ':test-results'
 // NOTE: dynamically load custom modules with pattern "custom -> company -> category -> module"
 file("${rootDir}/custom").eachDir { companyDir ->
     if('build' != companyDir.name && 'docker' != companyDir.name) {

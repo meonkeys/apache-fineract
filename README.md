@@ -432,39 +432,3 @@ PLATFORM API
 Fineract does not provide a UI, but provides an API. Running Fineract locally, the Swagger documentation can be accessed under `https://localhost:8443/fineract-provider/swagger-ui/index.html`. A live version can be accessed via [this Sandbox](https://sandbox.mifos.community/fineract-provider/swagger-ui/index.html) (not hosted by us).
 
 Apache Fineract supports client code generation using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) based on the [OpenAPI Specification](https://swagger.io/specification/). For more instructions on how to generate client code, check [this section](https://fineract.apache.org/docs/develop/#_generate_api_client) of the Fineract documentation. [This video](https://www.youtube.com/watch?v=FlVd-0YAo6c) documents the use of the Swagger-UI.
-
-## Agent-assisted contribution (apache-magpie)
-
-This repo adopts the
-[`apache/magpie`](https://github.com/apache/magpie)
-framework via a snapshot mechanism. The framework provides
-maintainer-facing skills (the `security-*` family for the
-security-issue handling lifecycle and the `pairing-*` family
-for structured pre-PR reviews) exposed as agent skills in
-agent harnesses such as Claude Code.
-
-The framework is **not** vendored — it lives as a
-gitignored snapshot under `.apache-magpie/`, fetched on
-demand from the version pinned in the committed
-[`.apache-magpie.lock`](.apache-magpie.lock). The only
-framework artefact committed to this repo is the
-`setup` skill at
-[`.agents/skills/magpie-setup/`](.agents/skills/magpie-setup/);
-everything else is a gitignored symlink the setup skill
-wires up.
-
-A fresh clone needs the snapshot populated before any
-framework skill is invocable. In your agent harness, run:
-
-    /magpie-setup
-
-(or follow [`.agents/skills/magpie-setup/`](.agents/skills/magpie-setup/))
-to fetch the snapshot per the committed lock, scaffold the
-gitignored symlinks, and install the post-checkout hook
-that re-creates them on each worktree checkout.
-
-Adopter-specific modifications to framework workflows live
-in [`.apache-magpie-overrides/`](.apache-magpie-overrides/)
-(committed) — never edit the snapshot directly. Framework
-changes go via PR to
-[`apache/magpie`](https://github.com/apache/magpie).

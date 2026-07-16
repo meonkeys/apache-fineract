@@ -1,0 +1,99 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": ["gh *"],
+    "filesystem": {
+      "denyRead": ["~/"],
+      "allowRead": [
+        ".",
+        "~/.gitconfig",
+        "~/.config/git/",
+        "~/.config/gh/",
+        "~/.cache/",
+        "~/.gradle/",
+        "~/.m2/",
+        "~/.local/share/uv/",
+        "~/.local/bin/",
+        "~/.config/apache-magpie/",
+        "~/.gnupg/",
+        "/run/user/*/gnupg/"
+      ],
+      "allowWrite": [
+        "~/.cache/",
+        "~/.gradle/",
+        "~/.m2/",
+        "~/.local/share/uv/"
+      ]
+    },
+    "network": {
+      "allowedDomains": [
+        "github.com", "api.github.com", "raw.githubusercontent.com",
+        "objects.githubusercontent.com", "codeload.github.com", "uploads.github.com",
+        "repo.maven.apache.org", "repo1.maven.org",
+        "plugins.gradle.org", "services.gradle.org", "downloads.gradle.org",
+        "lists.apache.org", "dist.apache.org", "downloads.apache.org", "archive.apache.org",
+        "cveprocess.apache.org", "cve.org", "www.cve.org", "cveawg.mitre.org",
+        "oauth2.googleapis.com", "gmail.googleapis.com"
+      ]
+    },
+    "credentials": {
+      "envVars": [
+        { "name": "ANTHROPIC_API_KEY", "mode": "deny" },
+        { "name": "ANTHROPIC_AUTH_TOKEN", "mode": "deny" },
+        { "name": "CLAUDE_CODE_OAUTH_TOKEN", "mode": "deny" },
+        { "name": "GH_TOKEN", "mode": "deny" },
+        { "name": "GITHUB_TOKEN", "mode": "deny" },
+        { "name": "AWS_ACCESS_KEY_ID", "mode": "deny" },
+        { "name": "AWS_SECRET_ACCESS_KEY", "mode": "deny" },
+        { "name": "AWS_SESSION_TOKEN", "mode": "deny" },
+        { "name": "NPM_TOKEN", "mode": "deny" },
+        { "name": "TWINE_PASSWORD", "mode": "deny" }
+      ]
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gh api graphql *)",
+      "Bash(gh api repos/*/*/collaborators --*)", "Bash(gh api repos/*/*/compare/*)",
+      "Bash(gh pr view *)", "Bash(gh pr list *)", "Bash(gh pr diff *)", "Bash(gh pr checks *)",
+      "Bash(gh issue view *)", "Bash(gh issue list *)",
+      "Bash(gh repo view *)", "Bash(gh repo list *)",
+      "Bash(gh run view *)", "Bash(gh run list *)", "Bash(gh run watch *)",
+      "Bash(gh workflow view *)", "Bash(gh workflow list *)",
+      "Bash(gh release view *)", "Bash(gh release list *)",
+      "Bash(gh label list *)", "Bash(gh cache list *)",
+      "Bash(gh search *)", "Bash(gh browse *)", "Bash(gh auth status*)"
+    ],
+    "deny": [
+      "Read(~/.aws/**)", "Read(~/.ssh/**)", "Read(~/.netrc)",
+      "Read(~/.docker/**)", "Read(~/.kube/**)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.config/apache-magpie/**)",
+      "Read(~/.config/gcloud/**)", "Read(~/.azure/**)",
+      "Read(//**/.env)", "Read(//**/.env.local)", "Read(//**/.env.*.local)",
+      "Bash(curl *)", "Bash(wget *)",
+      "Bash(aws *)", "Bash(gcloud *)", "Bash(az *)", "Bash(kubectl *)",
+      "Bash(docker login *)", "Bash(npm publish *)",
+      "Bash(pip install --upgrade *)", "Bash(uv self update *)",
+      "Bash(gh auth token*)", "Bash(gh auth refresh*)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(gh *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import os,sys,subprocess; p=os.path.join(os.environ.get('CLAUDE_PROJECT_DIR',''),'.claude','hooks','agent-guard.py'); sys.exit(subprocess.call([sys.executable,p]) if os.path.isfile(p) else 0)\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

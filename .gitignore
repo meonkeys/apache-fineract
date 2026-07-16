@@ -50,3 +50,7 @@ __pycache__/
 !/.claude/skills/magpie-setup
 /.github/skills/magpie-*
 !/.github/skills/magpie-setup
+/.apache-magpie-local/
+/.apache-magpie-sources/
+/.apache-magpie.sources.local.lock
+/.claude/settings.local.json

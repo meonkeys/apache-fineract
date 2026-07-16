@@ -36,3 +36,17 @@ gradleExp/
 
 .windsurf/
 docs/
+
+# Apache Magpie
+/.apache-magpie/
+/.apache-magpie.local.lock
+__pycache__/
+*.pyc
+/.claude/hooks/agent-guard.py
+/.claude/hooks/guards.d/
+/.agents/skills/magpie-*
+!/.agents/skills/magpie-setup
+/.claude/skills/magpie-*
+!/.claude/skills/magpie-setup
+/.github/skills/magpie-*
+!/.github/skills/magpie-setup

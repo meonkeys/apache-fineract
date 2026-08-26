@@ -158,29 +158,35 @@ project.afterEvaluate {
         }
     }
 
+    def proj = project
     tasks.named('compileJava') {
         dependsOn(generateStaticWeavingPersistenceXml)
 
         doLast {
             File persistenceXml = generatedPersistenceXml.get().asFile
             if (!persistenceXml.exists()) {
-                logger.info("No generated persistence.xml found for ${project.name}, skipping static weaving")
+                logger.info("No generated persistence.xml found for ${proj.name}, skipping static weaving")
                 return
             }
 
             File source = destinationDirectory.get().asFile
             File weavingRoot = persistenceXml.parentFile.parentFile
 
-            project.javaexec {
-                description = 'Performs EclipseLink static weaving of entity classes'
-                mainClass.set('org.eclipse.persistence.tools.weaving.jpa.StaticWeave')
-                classpath = project.sourceSets.main.runtimeClasspath
-                args = [
-                    '-persistenceinfo',
-                    weavingRoot.absolutePath,
-                    source.absolutePath,
-                    source.absolutePath
-                ]
+            def pb = new ProcessBuilder(
+                "${System.properties['java.home']}/bin/java",
+                "-cp",
+                proj.sourceSets.main.runtimeClasspath.asPath,
+                'org.eclipse.persistence.tools.weaving.jpa.StaticWeave',
+                '-persistenceinfo',
+                weavingRoot.absolutePath,
+                source.absolutePath,
+                source.absolutePath
+            )
+            pb.inheritIO()
+            def process = pb.start()
+            def exitCode = process.waitFor()
+            if (exitCode != 0) {
+                throw new RuntimeException("EclipseLink static weaving failed with exit code ${exitCode}")
             }
         }
     }

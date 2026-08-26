@@ -185,7 +185,7 @@ if (!(project.hasProperty('env') && project.getProperty('env') == 'dev')) {
 
 // Configuration for SQL tasks
 // https://docs.groovy-lang.org/latest/html/api/groovy/sql/Sql.html
-import groovy.sql.Sql
+// import groovy.sql.Sql
 
 project.ext.mysqlUser='root'
 project.ext.mysqlPassword='mysql'

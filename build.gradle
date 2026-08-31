@@ -113,7 +113,7 @@ plugins {
     id 'com.diffplug.spotless' version '6.25.0' apply false
     id 'org.nosphere.apache.rat' version '0.8.1' apply false
     id 'com.github.hierynomus.license' version '0.16.1' apply false
-    id 'com.github.jk1.dependency-license-report' version '2.9' apply false
+    id 'com.github.jk1.dependency-license-report' version '3.1.4' apply false
     id 'org.zeroturnaround.gradle.jrebel' version '1.2.2' apply false
     id 'org.springframework.boot' version '3.5.15' apply false
     id 'net.ltgt.errorprone' version '4.4.0' apply false
@@ -170,6 +170,11 @@ ext['swaggerFile'] = "$rootDir/fineract-provider/build/resources/main/static/fin
 // Apply static weaving configuration to all subprojects
 subprojects { subproject ->
     apply from: rootProject.file('static-weaving.gradle')
+
+    // Enable dependency locking for all configurations (Gradle 9.x compatibility with license-report plugin)
+    configurations.all {
+        resolutionStrategy.activateDependencyLocking()
+    }
 }
 
 allprojects  {
